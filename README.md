@@ -1,6 +1,7 @@
-# alkfejl_2016_8_mozirendszer
-Mozi jegyeladásait kezelő rendszer
-
+#Mozi jegyeladásait kezelő rendszer
+ <br>
+	<br>
+	<br>
 > ## Célkitűzés
  
 A program egy multiplex mozi jegyeladásait fogja tudni kezelni. 
@@ -8,8 +9,9 @@ A program egy multiplex mozi jegyeladásait fogja tudni kezelni.
 A szoftver legfontosabb feladata, hogy képes legyen a megfelelő felhasználói igényeket kielégíteni, amely két felhasználói körre is bontható. A mozi részéről lehetőség lesz új előadásokat meghirdetni, törölni. Illetve a szolgáltatás használójaként lehetőség lesz majd a meghirdetett filmeket megtekinteni, s ezekre helyet foglalni. 
  
 Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a mozi könnyebb működését, a nehézségek elkerülésével.
-
-
+ <br>
+	<br>
+	<br>
 > ## Nem funkcionális követelmények
  
 ### Megbízhatóság
@@ -32,9 +34,9 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - A kezelést könnyíteni kell az egyes funkciógombok és szövegek megfelelő méretével
 - A filmek és előadások esetén szükséges egy keresés input mező, mely azonnal listázza a megfelelő adatokat
 - Felhasználóbarát, ergonomikus elrendezés és kinézet
-
-
-
+ <br>
+	<br>
+	<br>
 > ## Funkcionális követelmények
 
 - A funkciók menürendszeren keresztül lennének elérhetőek, illetve az ablakokon megjelenő informatív gombokkal
@@ -55,42 +57,42 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Alkalmazottként szeretnék belépni az adminisztrációs felületre
 - Alkalmazottként szeretnék új filmeket meghirdetni (terem, film, időpont megadásával)
 - Alkalmazottként szeretnék meghirdetett filmeket törölni.
-
-
-
+ <br>
+	<br>
+	<br>
 > ## Szakterületi fogalomjegyzés
 
 ...HAMAROSAN...
-
-
-
+ <br>
+	<br>
+	<br>
 > ## Szerepkörök
 
 - Vendég: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti
 - Alkalmazott: Új filmeket képes meghirdetni, illetve törölni
-
-
-
+ <br>
+	<br>
+	<br>
 > ## Használati eset diagram
 
 ...HAMAROSAN...
-
-
-
+ <br>
+	<br>
+	<br>
 > ## Folyamatok
-
-
-
+ <br>
+	<br>
+	<br>
 ...HAMAROSAN...
-
-
-
+ <br>
+	<br>
+	<br>
 > ## Oldaltérkép
 
 ...HAMAROSAN...
-
-
-
+ <br>
+	<br>
+	<br>
 > ## Végpontok
 
 - GET /: főoldal
@@ -104,27 +106,27 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - GET /films/:id/reservation: adott filmre hely foglalása
 - GET /films/create: új film létrehozása
 - POST /films/create: új film felvitele, adatok küldése
-
-
-
+ <br>
+	<br>
+	<br>
 > ## Oldalvázlatok
 
 ...HAMAROSAN...
-
-
-
+ <br>
+	<br>
+	<br>
 >## Adatmodell
 
 ...HAMAROSAN...
-
-
-
+ <br>
+	<br>
+	<br>
 > ## Adatbázisterv
 
 ...HAMAROSAN...
-
-
-
+ <br>
+	<br>
+	<br>
 > ## Állapotdiagram
 
 ...HAMAROSAN...
