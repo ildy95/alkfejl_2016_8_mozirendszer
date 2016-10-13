@@ -10,9 +10,9 @@ A szoftver legfontosabb feladata, hogy képes legyen a megfelelő felhasználói
 Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a mozi könnyebb működését, a nehézségek elkerülésével.
 
 
-## Nem funkcionális követelmények
+> ## Nem funkcionális követelmények
  
-> ### Megbízhatóság
+### Megbízhatóság
 - Sérült adatok esetén az összes korábbi tartalom elveszhet
 - A felhasználói bevitel ellenőrzött, csak helyes bevitelt fogad el az alkalmazás 
 - A megbízhatóan kezelhető adatok mennyisége korlátozott
