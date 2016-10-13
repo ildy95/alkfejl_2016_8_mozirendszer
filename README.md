@@ -14,26 +14,83 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
  
  
 ### Megbízhatóság
-- A funkciók mindig elérhetőek és végrehajtódnak, akkor is, ha az adatok sérülnek  sérült adatok esetén az összes korábbi tartalom elveszhet
+- Sérült adatok esetén az összes korábbi tartalom elveszhet
 - A felhasználói bevitel ellenőrzött, csak helyes bevitelt fogad el az alkalmazás 
 - A megbízhatóan kezelhető adatok mennyisége korlátozott
 - Az adatok sérülhetnek bezáráskor történő összeomláskor 
 - Az adatok adatbázisban tárolódnak, az adatbázis sérülésével a még nem rögzített adatok elveszhetnek 
  
  
-Biztonság  nincs konkrét garancia az adatok biztonságára  egyes funkciók jelszóval levédettek lesznek. 
+### Biztonság
+- Nincs konkrét garancia az adatok biztonságára 
+- Egyes funkciók jelszóval levédettek lesznek. 
  
  
-Hatékonyság  a program válaszideje gyors minden funkcióra   az indítás és bezárás hosszabb időt vehet igénybe, függően a teljes adatmennyiségtől 
+### Hatékonyság
+- A program válaszideje gyors minden funkcióra
+- Az indítás és bezárás hosszabb időt vehet igénybe, függően a teljes adatmennyiségtől 
+ 
+### Felhasználhatóság 
+- Minden programfunkciónak áttekinthetőnek kell lennie
+- A kezelést könnyíteni kell az egyes funkciógombok és szövegek megfelelő méretével
+- A filmek és előadások esetén szükséges egy keresés input mező, mely azonnal listázza a megfelelő adatokat
+- Felhasználóbarát, ergonomikus elrendezés és kinézet
 
- 
-6 
- 
- 
-Hordozhatóság  a program csak Windows XP, vagy újabb operációs rendszeren fut, személyi számítógépen  a program másolással könnyen áttelepíthető 
- 
- 
-Környezeti   a felhasználás helye egy Windows 10-t futtató számítógép  együtt kell működnie az adatbázis-kezelő szoftverrel 
- 
- 
-Felhasználhatóság  Minden programfunkciónak áttekinthetőnek kell lennie. A kezelést könnyíteni kell az egyes funkciógombok és szövegek megfelelő méretével. A filmek és előadások esetén szükséges egy keresés input mező, mely azonnal listázza a megfelelő adatokat. 
+
+## FUNKCIONÁLIS KÖVETELMÉNYEK
+
+- A funkciók menürendszeren keresztül lennének elérhetőek, illetve az ablakokon megjelenő informatív gombokkal
+
+### Vendég:
+- Vendégként szeretnék regisztrálni az oldalra
+- Vendégként a főoldalon szeretnék kiemelt filmeket látni
+- Vendégként szeretnék a filmek között szabadon böngészni
+- Vendégként szeretnék filmeknél leírást megtekinteni
+- Vendégként szeretnék filmeket keresni
+
+### Felhasználó:
+- Felhasználóként szeretném az adataimat szerkeszteni
+- Felhasználóként szeretnék meghirdetett filmekre jegyet foglalni (név, e-mail cím, telefonszám adatokkal), s egy generált kódot szeretnék kapni, a jegyvételkor visszaigazoláshoz
+- Felhasználóként szeretném esetlegesen a foglalt film visszamondását
+
+### Adminisztrátor (mozi alkalmazottja)
+- Alkalmazottként szeretnék belépni az adminisztrációs felületre
+- Alkalmazottként szeretnék új filmeket meghirdetni (terem, film, időpont megadásával)
+- Alkalmazottként szeretnék meghirdetett filmeket törölni.
+
+
+## Szakterületi fogalomjegyzés
+
+...HAMAROSAN...
+
+## Szerepkörök
+
+- Vendég: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti
+- Alkalmazott: Új filmeket képes meghirdetni, illetve törölni
+
+## Használati eset diagram
+
+...HAMAROSAN...
+
+## Folyamatok
+
+...HAMAROSAN...
+
+## Oldaltérkép
+
+...HAMAROSAN...
+
+## Végpontok
+
+- GET /: főoldal
+- GET /login: bejelentkező oldal
+- POST /login: bejelentkezési adatok felküldése
+- GET /register: regisztrációs oldal
+- POST /register: bejelentkezési adatok felküldése
+- GET /profile: profiladatok
+- GET /films: filmlista
+- GET /films/:id: film megtekintése
+- GET /films/:id/reservation: adott filmre hely foglalása
+- GET /films/create: új film létrehozása
+- POST /films/create: új film felvitele, adatok küldése
+
