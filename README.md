@@ -1,7 +1,7 @@
 # alkfejl_2016_8_mozirendszer
 Mozi jegyeladásait kezelő rendszer
 
-## Célkitűzés
+> ## Célkitűzés
  
 A program egy multiplex mozi jegyeladásait fogja tudni kezelni. 
  
@@ -10,7 +10,7 @@ A szoftver legfontosabb feladata, hogy képes legyen a megfelelő felhasználói
 Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a mozi könnyebb működését, a nehézségek elkerülésével.
 
 
-## NEM FUNKCIONÁLIS KÖVETELMÉNYEK 
+> ## NEM FUNKCIONÁLIS KÖVETELMÉNYEK 
  
  
 ### Megbízhatóság
@@ -37,7 +37,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Felhasználóbarát, ergonomikus elrendezés és kinézet
 
 
-## FUNKCIONÁLIS KÖVETELMÉNYEK
+> ## FUNKCIONÁLIS KÖVETELMÉNYEK
 
 - A funkciók menürendszeren keresztül lennének elérhetőek, illetve az ablakokon megjelenő informatív gombokkal
 
@@ -59,28 +59,28 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Alkalmazottként szeretnék meghirdetett filmeket törölni.
 
 
-## Szakterületi fogalomjegyzés
+> ## Szakterületi fogalomjegyzés
 
 ...HAMAROSAN...
 
-## Szerepkörök
+> ## Szerepkörök
 
 - Vendég: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti
 - Alkalmazott: Új filmeket képes meghirdetni, illetve törölni
 
-## Használati eset diagram
+> ## Használati eset diagram
 
 ...HAMAROSAN...
 
-## Folyamatok
+> ## Folyamatok
 
 ...HAMAROSAN...
 
-## Oldaltérkép
+> ## Oldaltérkép
 
 ...HAMAROSAN...
 
-## Végpontok
+> ## Végpontok
 
 - GET /: főoldal
 - GET /login: bejelentkező oldal
