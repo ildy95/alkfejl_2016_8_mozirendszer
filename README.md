@@ -12,7 +12,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 
 ## Nem funkcionális követelmények
  
-### Megbízhatóság
+> ### Megbízhatóság
 - Sérült adatok esetén az összes korábbi tartalom elveszhet
 - A felhasználói bevitel ellenőrzött, csak helyes bevitelt fogad el az alkalmazás 
 - A megbízhatóan kezelhető adatok mennyisége korlátozott
@@ -35,7 +35,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 
 
 
-## Funkcionális követelmények
+> ## Funkcionális követelmények
 
 - A funkciók menürendszeren keresztül lennének elérhetőek, illetve az ablakokon megjelenő informatív gombokkal
 
