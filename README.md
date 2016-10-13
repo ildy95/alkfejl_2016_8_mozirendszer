@@ -10,8 +10,7 @@ A szoftver legfontosabb feladata, hogy képes legyen a megfelelő felhasználói
 Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a mozi könnyebb működését, a nehézségek elkerülésével.
 
 
-> ## NEM FUNKCIONÁLIS KÖVETELMÉNYEK 
- 
+> ## Nem funkcionális követelmények
  
 ### Megbízhatóság
 - Sérült adatok esetén az összes korábbi tartalom elveszhet
@@ -20,11 +19,9 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Az adatok sérülhetnek bezáráskor történő összeomláskor 
 - Az adatok adatbázisban tárolódnak, az adatbázis sérülésével a még nem rögzített adatok elveszhetnek 
  
- 
 ### Biztonság
 - Nincs konkrét garancia az adatok biztonságára 
 - Egyes funkciók jelszóval levédettek lesznek. 
- 
  
 ### Hatékonyság
 - A program válaszideje gyors minden funkcióra
@@ -37,7 +34,8 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Felhasználóbarát, ergonomikus elrendezés és kinézet
 
 
-> ## FUNKCIONÁLIS KÖVETELMÉNYEK
+
+> ## Funkcionális követelmények
 
 - A funkciók menürendszeren keresztül lennének elérhetőek, illetve az ablakokon megjelenő informatív gombokkal
 
@@ -59,26 +57,39 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Alkalmazottként szeretnék meghirdetett filmeket törölni.
 
 
+
 > ## Szakterületi fogalomjegyzés
 
 ...HAMAROSAN...
+
+
 
 > ## Szerepkörök
 
 - Vendég: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti
 - Alkalmazott: Új filmeket képes meghirdetni, illetve törölni
 
+
+
 > ## Használati eset diagram
 
 ...HAMAROSAN...
 
+
+
 > ## Folyamatok
 
+
+
 ...HAMAROSAN...
+
+
 
 > ## Oldaltérkép
 
 ...HAMAROSAN...
+
+
 
 > ## Végpontok
 
@@ -93,4 +104,30 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - GET /films/:id/reservation: adott filmre hely foglalása
 - GET /films/create: új film létrehozása
 - POST /films/create: új film felvitele, adatok küldése
+
+
+
+> ## Oldalvázlatok
+
+...HAMAROSAN...
+
+
+
+>## Adatmodell
+
+...HAMAROSAN...
+
+
+
+> ## Adatbázisterv
+
+...HAMAROSAN...
+
+
+
+> ## Állapotdiagram
+
+...HAMAROSAN...
+
+
 
