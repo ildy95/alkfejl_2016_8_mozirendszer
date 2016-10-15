@@ -1,7 +1,5 @@
 #Mozi jegyeladásait kezelő rendszer
- </br>
-	</br>
-	</br>
+
 > ## Célkitűzés
  
 A program egy multiplex mozi jegyeladásait fogja tudni kezelni. 
@@ -9,9 +7,7 @@ A program egy multiplex mozi jegyeladásait fogja tudni kezelni.
 A szoftver legfontosabb feladata, hogy képes legyen a megfelelő felhasználói igényeket kielégíteni, amely két felhasználói körre is bontható. A mozi részéről lehetőség lesz új előadásokat meghirdetni, törölni. Illetve a szolgáltatás használójaként lehetőség lesz majd a meghirdetett filmeket megtekinteni, s ezekre helyet foglalni. 
  
 Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a mozi könnyebb működését, a nehézségek elkerülésével.
- </br>
-	</br>
-	</br>
+
 > ## Nem funkcionális követelmények
  
 ### Megbízhatóság
@@ -34,9 +30,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - A kezelést könnyíteni kell az egyes funkciógombok és szövegek megfelelő méretével
 - A filmek és előadások esetén szükséges egy keresés input mező, mely azonnal listázza a megfelelő adatokat
 - Felhasználóbarát, ergonomikus elrendezés és kinézet
- </br>
-	</br>
-	</br>
+
 > ## Funkcionális követelmények
 
 ### Vendég:
@@ -56,36 +50,23 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Alkalmazottként szeretnék új filmeket meghirdetni (terem, film, időpont megadásával)
 - Alkalmazottként szeretnék meghirdetett filmeket törölni.
 - Alkalmazottként szeretnék filmekhez előadás időpontot hirdetni.
- </br>
- </br>
-</br>
+
 > ## Szakterületi fogalomjegyzék
 
 ...HAMAROSAN...
- </br>
-	</br>
-	</br>
+
 > ## Szerepkörök
 
 - Vendég: Filmek keresését, böngészését, megtekintését végezheti, illetve regisztrálhat
 - Alkalmazott: Új filmeket képes meghirdetni, illetve törölni
 - Felhasználó: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti, illetve bejelentkezhet
- </br>
-	</br>
-	</br>
+
+
 > ## Használati eset diagram
-</br>
 ![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/cinema.png)
 
- </br>
-	</br>
-	</br>
 > ## Folyamatok
- <br>
 ...HAMAROSAN...
- <br>
-	<br>
-	<br>
 > ## Oldaltérkép
 
 ...HAMAROSAN...
