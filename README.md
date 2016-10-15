@@ -74,7 +74,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 	<br>
 	<br>
 > ## Használati eset diagram
-
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/cinema.png)
 
  <br>
 	<br>
