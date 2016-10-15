@@ -1,14 +1,14 @@
 #Mozi jegyeladásait kezelő rendszer
 
-> ## Célkitűzés
+## Célkitűzés
  
-A program egy multiplex mozi jegyeladásait fogja tudni kezelni. 
+A program egy mozi jegyeladásait fogja tudni kezelni. 
  
 A szoftver legfontosabb feladata, hogy képes legyen a megfelelő felhasználói igényeket kielégíteni, amely két felhasználói körre is bontható. A mozi részéről lehetőség lesz új előadásokat meghirdetni, törölni. Illetve a szolgáltatás használójaként lehetőség lesz majd a meghirdetett filmeket megtekinteni, s ezekre helyet foglalni. 
  
 Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a mozi könnyebb működését, a nehézségek elkerülésével.
 
-> ## Nem funkcionális követelmények
+## Nem funkcionális követelmények
  
 ### Megbízhatóság
 - Sérült adatok esetén az összes korábbi tartalom elveszhet
@@ -30,8 +30,10 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - A kezelést könnyíteni kell az egyes funkciógombok és szövegek megfelelő méretével
 - A filmek és előadások esetén szükséges egy keresés input mező, mely azonnal listázza a megfelelő adatokat
 - Felhasználóbarát, ergonomikus elrendezés és kinézet
-
-> ## Funkcionális követelmények
+</br>
+</br>
+</br>
+## Funkcionális követelmények
 
 ### Vendég:
 - Vendégként szeretnék regisztrálni az oldalra
