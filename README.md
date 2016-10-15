@@ -51,27 +51,27 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Alkalmazottként szeretnék meghirdetett filmeket törölni.
 - Alkalmazottként szeretnék filmekhez előadás időpontot hirdetni.
 
-> ## Szakterületi fogalomjegyzék
+## Szakterületi fogalomjegyzék
 
 ...HAMAROSAN...
 
-> ## Szerepkörök
+## Szerepkörök
 
 - Vendég: Filmek keresését, böngészését, megtekintését végezheti, illetve regisztrálhat
 - Alkalmazott: Új filmeket képes meghirdetni, illetve törölni
 - Felhasználó: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti, illetve bejelentkezhet
 ncncfncncncvn
 
-> ## Használati eset diagram
+## Használati eset diagram
 ![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/cinema.png)
 
-> ## Folyamatok
+## Folyamatok
 
 
-> ## Oldaltérkép
+## Oldaltérkép
 
 
-> ## Végpontok
+## Végpontok
 
 - GET /: főoldal
 - GET /login: bejelentkező oldal
@@ -87,19 +87,19 @@ ncncfncncncvn
  <br>
 	<br>
 	<br>
-> ## Oldalvázlatok
+## Oldalvázlatok
 
 ...HAMAROSAN...
  <br>
 	<br>
 	<br>
->## Adatmodell
+## Adatmodell
 
 ...HAMAROSAN...
  <br>
 	<br>
 	<br>
-> ## Adatbázisterv
+## Adatbázisterv
 
 ...HAMAROSAN...
  <br>
