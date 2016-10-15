@@ -60,7 +60,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Vendég: Filmek keresését, böngészését, megtekintését végezheti, illetve regisztrálhat
 - Alkalmazott: Új filmeket képes meghirdetni, illetve törölni
 - Felhasználó: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti, illetve bejelentkezhet
-
+ncncfncncncvn
 
 > ## Használati eset diagram
 
