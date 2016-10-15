@@ -77,9 +77,9 @@ ncncfncncncvn
 
 ![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/foglal%C3%A1s%20visszamond%C3%A1sa.png)
 
-![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/bejelentkez%C3%A9s_admin.png)
-
 * Alkalmazott:
+
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/bejelentkez%C3%A9s_admin.png)
 
 ![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/%C3%BAj%20film%20hozz%C3%A1ad%C3%A1sa.png)
 
