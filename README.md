@@ -1,6 +1,6 @@
 #Mozi jegyeladásait kezelő rendszer
 
-## __Célkitűzés__
+## Célkitűzés
  
 A program egy mozi jegyeladásait fogja tudni kezelni. 
  
@@ -67,6 +67,24 @@ ncncfncncncvn
 
 ## Folyamatok
 
+* Vendég és felhasználó:
+
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/bejelentkez%C3%A9s_felhasznal%C3%B3.png)
+
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/adatok_modositasa.png)
+
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/jegyfoglal%C3%A1s.png)
+
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/foglal%C3%A1s%20visszamond%C3%A1sa.png)
+
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/bejelentkez%C3%A9s_admin.png)
+
+* Alkalmazott:
+
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/%C3%BAj%20film%20hozz%C3%A1ad%C3%A1sa.png)
+
+
+
 
 ## Oldaltérkép
 
@@ -84,27 +102,19 @@ ncncfncncncvn
 - GET /films/:id/reservation: adott filmre hely foglalása
 - GET /films/create: új film létrehozása
 - POST /films/create: új film felvitele, adatok küldése
- <br>
-	<br>
-	<br>
+
 ## Oldalvázlatok
 
-...HAMAROSAN...
- <br>
-	<br>
-	<br>
+Az alábbi linken megtekinthető: https://app.moqups.com/ildy95/sLaWCR8v1S/view/page/a298270dc
+
 ## Adatmodell
 
-...HAMAROSAN...
- <br>
-	<br>
-	<br>
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/adatmodell.png)
+
 ## Adatbázisterv
 
-...HAMAROSAN...
- <br>
-	<br>
-	<br>
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/Adatbazismodell.png)
+
 > ## Állapotdiagram
 
 ...HAMAROSAN...
