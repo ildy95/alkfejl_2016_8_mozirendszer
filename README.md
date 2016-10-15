@@ -30,7 +30,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - A kezelést könnyíteni kell az egyes funkciógombok és szövegek megfelelő méretével
 - A filmek és előadások esetén szükséges egy keresés input mező, mely azonnal listázza a megfelelő adatokat
 - Felhasználóbarát, ergonomikus elrendezés és kinézet
-</br>
+<br>
 </br>
 ## Funkcionális követelmények
 
