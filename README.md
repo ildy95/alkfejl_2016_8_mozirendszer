@@ -32,7 +32,6 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Felhasználóbarát, ergonomikus elrendezés és kinézet
 </br>
 </br>
-</br>
 ## Funkcionális követelmények
 
 ### Vendég:
