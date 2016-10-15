@@ -19,7 +19,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
  
 ### Biztonság
 - Nincs konkrét garancia az adatok biztonságára 
-- Egyes funkciók jelszóval levédettek lesznek. 
+- Egyes funkciók jelszóval levédettek lesznek 
  
 ### Hatékonyság
 - A program válaszideje gyors minden funkcióra
@@ -28,7 +28,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 ### Felhasználhatóság 
 - Minden programfunkciónak áttekinthetőnek kell lennie
 - A kezelést könnyíteni kell az egyes funkciógombok és szövegek megfelelő méretével
-- A filmek és előadások esetén szükséges egy keresés input mező, mely azonnal listázza a megfelelő adatokat
+- A filmek esetén szükséges egy keresés input mező, mely azonnal listázza a megfelelő adatokat
 - Felhasználóbarát, ergonomikus elrendezés és kinézet
 
 ## Funkcionális követelmények
@@ -41,6 +41,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Vendégként szeretnék filmeket keresni
 
 ### Felhasználó:
+- Felhasználóként szeretnék belépni
 - Felhasználóként szeretném az adataimat szerkeszteni
 - Felhasználóként szeretnék meghirdetett filmekre jegyet foglalni (név, e-mail cím, telefonszám adatokkal), s egy generált kódot szeretnék kapni, a jegyvételkor visszaigazoláshoz
 - Felhasználóként szeretném esetlegesen a foglalt film visszamondását
@@ -60,7 +61,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Vendég: Filmek keresését, böngészését, megtekintését végezheti, illetve regisztrálhat
 - Alkalmazott: Új filmeket képes meghirdetni, illetve törölni
 - Felhasználó: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti, illetve bejelentkezhet
-ncncfncncncvn
+
 
 ## Használati eset diagram
 ![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/cinema.png)
@@ -88,6 +89,28 @@ ncncfncncncvn
 
 ## Oldaltérkép
 
+Publikus:
+ - Főoldal
+ - Filmek böngészése
+    + Film megtekintése
+ - Belépés
+ - Regisztráció
+ 
+Felhasználó:
+ - Kilépés
+ - Profiladatok
+    + Profiladatok szerkesztése
+ - Filmlista
+    + Film megtekintése
+       * Foglalás
+       * Foglalás visszamondása
+
+Alkalmazott:
+ - Belépés
+ - Profiladatok
+ - Új film felvétele
+ - Új előadás hirdetése egy filmre
+
 
 ## Végpontok
 
@@ -98,7 +121,7 @@ ncncfncncncvn
 - POST /register: bejelentkezési adatok felküldése
 - GET /profile: profiladatok
 - GET /films: filmlista
-- GET /films/:id: film megtekintése
+- GET /films/:id : film megtekintése
 - GET /films/:id/reservation: adott filmre hely foglalása
 - GET /films/create: új film létrehozása
 - POST /films/create: új film felvitele, adatok küldése
