@@ -54,7 +54,11 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 
 ## Szakterületi fogalomjegyzék
 
-...HAMAROSAN...
+- Multiplex mozi: plázákban üzemelő, soktermes mozik, komolyabb felszereléssel, mint pl. hangtechnikai különbségek.
+- 3D: Térhatású film
+- 4D: Minden egyes film a részletesen megkoreografált levegő-, víz-, illat-, mozgás-, vibrációs, stb. hatásokkal a hagyományos moziterem audiovizuális ingereit messze felülmúlva hat a nézőkre, akik teljesen elmélyülhetnek és az akció részeseivé válhatnak.
+- IMAX: filmformátum, amely a hagyományosnál sokkal nagyobb méretű és felbontású képek vetítésére szolgál
+
 
 ## Szerepkörök
 
@@ -89,14 +93,14 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 
 ## Oldaltérkép
 
-Publikus:
+### Publikus:
  - Főoldal
  - Filmek böngészése
     + Film megtekintése
  - Belépés
  - Regisztráció
  
-Felhasználó:
+### Felhasználó:
  - Kilépés
  - Profiladatok
     + Profiladatok szerkesztése
@@ -105,7 +109,7 @@ Felhasználó:
        * Foglalás
        * Foglalás visszamondása
 
-Alkalmazott:
+### Alkalmazott:
  - Belépés
  - Profiladatok
  - Új film felvétele
