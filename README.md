@@ -1,6 +1,6 @@
 #Mozi jegyeladásait kezelő rendszer
 
-## Célkitűzés
+## <dt>Célkitűzés</dt>
  
 A program egy mozi jegyeladásait fogja tudni kezelni. 
  
