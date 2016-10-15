@@ -63,12 +63,13 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 
 
 > ## Használati eset diagram
-![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/cinema.png)
+
 
 > ## Folyamatok
 ...HAMAROSAN...
-> ## Oldaltérkép
 
+
+> ## Oldaltérkép
 ...HAMAROSAN...
  <br>
 	<br>
