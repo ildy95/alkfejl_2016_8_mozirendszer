@@ -39,8 +39,6 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 	<br>
 > ## Funkcionális követelmények
 
-- A funkciók menürendszeren keresztül lennének elérhetőek, illetve az ablakokon megjelenő informatív gombokkal
-
 ### Vendég:
 - Vendégként szeretnék regisztrálni az oldalra
 - Vendégként a főoldalon szeretnék kiemelt filmeket látni
@@ -57,10 +55,11 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - Alkalmazottként szeretnék belépni az adminisztrációs felületre
 - Alkalmazottként szeretnék új filmeket meghirdetni (terem, film, időpont megadásával)
 - Alkalmazottként szeretnék meghirdetett filmeket törölni.
+- Alkalmazottként szeretnék filmekhez előadás időpontot hirdetni.
  <br>
-	<br>
-	<br>
-> ## Szakterületi fogalomjegyzés
+ <br>
+<br>
+> ## Szakterületi fogalomjegyzék
 
 ...HAMAROSAN...
  <br>
@@ -68,14 +67,15 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 	<br>
 > ## Szerepkörök
 
-- Vendég: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti
+- Vendég: Filmek keresését, böngészését, megtekintését végezheti, illetve regisztrálhat
 - Alkalmazott: Új filmeket képes meghirdetni, illetve törölni
+- Felhasználó: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti, illetve bejelentkezhet
  <br>
 	<br>
 	<br>
 > ## Használati eset diagram
 
-...HAMAROSAN...
+
  <br>
 	<br>
 	<br>
