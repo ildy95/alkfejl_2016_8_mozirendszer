@@ -144,7 +144,7 @@ Az alábbi linken megtekinthető: https://app.moqups.com/ildy95/sLaWCR8v1S/view/
 
 > ## Állapotdiagram
 
-...HAMAROSAN...
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/regisztr%C3%A1ci%C3%B3%20visszaigazol%C3%A1ssal.png)
 
 
 
