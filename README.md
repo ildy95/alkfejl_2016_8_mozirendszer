@@ -140,7 +140,7 @@ Az alábbi linken megtekinthető: https://app.moqups.com/ildy95/sLaWCR8v1S/view/
 
 ## Adatbázisterv
 
-![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/Adatbazismodell.png)
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/Adatbazism.png)
 
 > ## Állapotdiagram
 
