@@ -1,0 +1,144 @@
+{% extends 'master' %}
+
+{% block title %}Előadás hirdetése{% endblock %}
+{% block content %}
+  <h1>Előadás hirdetése</h1>
+  {% if old('errors') %}
+  <div class="alert alert-danger" role="alert">Nem sikerült létrehozni a filmet:
+    <ul>
+      {% for error in old('errors') %}
+      <li>{{ error.message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  <div class="row" onload="betoltHelyek()">
+    <div class="col-md-6 col-md-offset-3">
+      <form class="form-horizontal" action="{{ 'do_eloadas_create' | route }}" method="POST" enctype="multipart/form-data">
+        {{ csrfField }}
+        
+        <div class="container">
+            <div class="form-group">
+                <label for="dtp_input1" class="col-md-2 control-label">Előadás ideje</label>
+                <div class="input-group date form_datetime col-md-5" data-date="2016-11-16T05:25:07Z" data-date-format="yyyy-mm-dd HH:ii:ss" data-link-field="dtp_input1">
+                    <input class="form-control" name="ido" placeholder="Idő" size="16" type="text" id="date-daily" value="{{ old('ido') }}" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputTerem" class="col-sm-4 control-label">Terem</label>
+          <div class="col-sm-8">
+          <select class="form-control" id="inputTerem" name="terem" placeholder="Hossz" value="{{ old('terem') }}">
+            <option> 1</option>
+            <option> 2 </option>
+            <option> 3 </option>
+            <option> 4 </option>
+            <option> 5 </option>
+          </select>
+            
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="inputFilm" class="col-sm-4 control-label">Film</label>
+          <div class="col-sm-8">
+          <select multiple="" class="form-control" id="inputFilm" name="film_id" placeholder="Film"}}">
+           {% for film in films %}
+            <option> {{ film.id }}. {{ film.cim }} </option>
+            {% endfor %}
+          </select>
+          </div>
+        </div>
+
+        <div class="plane">
+  <div class="cockpit">
+    <h1>Kérem válasszon helyet!</h1>
+  </div>
+  <div class="exit exit--front fuselage">
+    
+  </div>
+  <ol class="cabin fuselage">
+    <li class="row row--1">
+      <ol class="seats" type="A">
+        <li class="seat">
+          <input type="checkbox" id="1A" name="A1" disabled onchange="myFunction1()"/>
+          <label for="1A">1A</label>
+        </li>
+        <li class="seat">
+          <input type="checkbox" id="1B" name="B1" onchange="betoltHelyek()"/>
+          <label for="1B">1B</label>
+        </li>
+        <li class="seat">
+          <input type="checkbox" id="1C" name="C1" onchange="myFunction3()"/>
+          <label for="1C">1C</label>
+        </li>
+        <li class="seat">
+          <input type="checkbox" disabled id="1D" name="D1" onchange="myFunction4()"/>
+          <label for="1D">Occupied</label>
+        </li>
+        <li class="seat">
+          <input type="checkbox" id="1E" name="E1" onchange="myFunction5()"/>
+          <label for="1E">1E</label>
+        </li>
+        <li class="seat">
+          <input type="checkbox" id="1F" name="F1" onchange="myFunction6()"/>
+          <label for="1F">1F</label>
+        </li>
+      </ol>
+    </li>
+  <div class="exit exit--back fuselage">
+    
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+  function myFunction1() {
+      document.getElementById("1A").value = 1;
+  }
+  function myFunction2() {
+      document.getElementById("1B").value = 1;
+  }
+  function myFunction3() {
+      document.getElementById("1C").value = 1;
+  }
+  function myFunction4() {
+      document.getElementById("1D").value = 1;
+  }
+  function myFunction5() {
+      document.getElementById("1E").value = 1;
+  }
+  function myFunction6() {
+      document.getElementById("1F").value = 1;
+  }
+  function betoltHelyek() {
+      console.log('helyfoglalas')
+      for (hely in helyek) {
+        if ( {{ hely.foglalt }} == 1 ) {
+          document.getElementById( {{ hely.helynev }} ).style.backgroundColor = '#FFFF00';;
+        }
+      }
+  }
+</script>
+
+
+
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-8">
+            <button type="submit" class="btn btn-success">Film beküldése</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+

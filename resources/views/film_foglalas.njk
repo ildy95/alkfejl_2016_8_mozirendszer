@@ -1,0 +1,110 @@
+{% extends 'master' %}
+
+{% block title %}Foglalás{% endblock %}
+{% block content %}
+  <h1>Foglalás a {{ film.cim }} filmre</h1>
+  {% if old('errors') %}
+  <div class="alert alert-danger" role="alert">Nem sikerült létrehozni a filmet:
+    <ul>
+      {% for error in old('errors') %}
+      <li>{{ error.message }}</li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form class="form-horizontal" action="{{ 'do_film_foglalas' | route }}" method="POST" enctype="multipart/form-data">
+        {{ csrfField }}
+
+        <div class="plane">
+  <div class="cockpit">
+    <h1>Kérem válasszon helyet!</h1>
+  </div>
+  <div class="exit exit--front fuselage">
+
+<div>
+    <ol class="cabin fuselage">
+        <li class="row row--1">
+            <ol class="seats" type="A">
+                {% for helyBatch in helyek | batch(3) %}
+                    <ol>
+                    {% for hely in helyBatch %}
+                        <li class="seat">
+                            <button type="button" id="{{hely.helynev}}" name="f{{hely.helynev}}" onclick="Function{{hely.helynev}}()">{{hely.helynev}}</button>
+                        </li>
+                        <script type="text/javascript">
+                            if ( {{hely.foglalt}} == 1 ) {
+                                document.getElementById("{{hely.helynev}}").style.backgroundColor = "#FF0303"
+                                document.getElementById("{{hely.helynev}}").disabled = true
+                            } else {
+                                 document.getElementById("{{hely.helynev}}").style.backgroundColor = "#076223"
+                            }
+                        </script>
+                    {% endfor %}
+                    </ol>
+                {% endfor %}
+            </ol>
+        </li>
+    </ol>
+    <div class="exit exit--back fuselage"></div>
+</div>  
+  
+
+
+
+<script>
+  function Function1A() {
+        if ( document.getElementById("1A").value == 1) {
+            document.getElementById("1A").value = 0;
+            document.getElementById("1A").style.backgroundColor = "#076223"
+        }
+        else {
+            document.getElementById("1A").value = 1;
+            document.getElementById("1A").style.backgroundColor = "#EAE214"
+        }
+  }
+  function Function1B() {
+      document.getElementById("1B").value = 1;
+      document.getElementById("1B").style.backgroundColor = "#076223"
+  }
+  function Function1C() {
+      document.getElementById("1C").value = 1;
+      document.getElementById("1C").style.backgroundColor = "#076223"
+  }
+  function Function1D() {
+      document.getElementById("1D").value = 1;
+      document.getElementById("1D").style.backgroundColor = "#076223"
+  }
+  function Function1E() {
+      document.getElementById("1E").value = 1;
+      document.getElementById("1E").style.backgroundColor = "#076223"
+  }
+  function Function1F() {
+      document.getElementById("1F").value = 1;
+      document.getElementById("1F").style.backgroundColor = "#076223"
+  }
+</script>
+
+
+        <div class="form-group">
+          <div class="col-sm-offset-4 col-sm-8">
+            <button type="submit" class="btn btn-success">Foglalás küldése</button>
+          </div>
+        </div>
+
+        <script>
+            function betoltHelyek() {
+                for (hely in helyek) {
+                    if ( {{ hely.foglalt }} == 1 ) {
+                        document.getElementById( {{ hely.helynev }} ).style.backgroundColor = '#FFFF00';;
+                    }
+                }
+        }
+        </script>
+      </form>
+    </div>
+  </div>
+{% endblock %}
+
+
