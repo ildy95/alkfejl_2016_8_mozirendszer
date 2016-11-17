@@ -14,16 +14,9 @@ class FilmController {
   * main (request, response) {
     // load all categories
     const films = yield Film.all()
+    const eloadasok = yield Film.all()
 
-    //films = films.slice(1,2,3)
-
-  /* // for each category load the last 3 recipes
-    for (let film of film) {
-      const latestFilms = yield film..recipes().active().orderBy('id', 'desc').limit(3).fetch()
-      film.latestFilms = latestFilms.toJSON()
-    }*/
-
-      yield response.sendView('main', { films: films .toJSON() })
+    yield response.sendView('main', { films: films .toJSON() })
     
   }
 
@@ -220,38 +213,35 @@ class FilmController {
 
   * doFilmFoglalas(request, response) {
     const helyData = request.all()
+    const filmId = request.param('id')
+    const film = yield Film.find(filmId)
 
-    if (helyData.f1A == 1) {
-      const hely = yield Seat.find(1)
-      hely.foglalt = 1;
-      yield hely.update()
-    } 
-    if (helyData.f1B == 1) {
-      const hely = yield Seat.find(2)
-      hely.foglalt = 1;
-      yield hely.update()
-    } 
-    if (helyData.f1C == 1) {
-      const hely = yield Seat.find(3)
-      hely.foglalt = 1;
-      yield hely.update()
-    } 
-    if (helyData.f1D == 1) {
-      const hely = yield Seat.find(4)
-      hely.foglalt = 1;
-      yield hely.update()
-    } 
-    if (helyData.f1E == 1) {
-      const hely = yield Seat.find(5)
-      hely.foglalt = 1;
-      yield hely.update()
-    } 
-    if (helyData.f1F == 1) {
-      const hely = yield Seat.find(6)
-      hely.foglalt = 1;
-      yield hely.update()
+    const helyek = yield Seat.all()
+
+    const seatNames = [
+      'f1A', 'f1B', 'f1C', 'f1D', 'f1E', 'f1F',
+      'f2A', 'f2B', 'f2C', 'f2D', 'f2E', 'f2F',
+      'f3A', 'f3B', 'f3C', 'f3D', 'f3E', 'f3F',
+      'f4A', 'f4B', 'f4C', 'f4D', 'f4E', 'f4F',
+      'f5A', 'f5B', 'f5C', 'f5D', 'f5E', 'f5F',
+      'f6A', 'f6B', 'f6C', 'f6D', 'f6E', 'f6F'
+    ]
+
+    const ids = yield Seat.ids()
+
+    var i;
+    var count = 0;
+    for (i = 0; i < seatNames.length; i++) {
+      var valtozo = seatNames[i]
+      if (helyData.valtozo == 1) {
+          const hely = yield Seat.find(ids[i])
+          hely.foglalt = 1;
+          //yield hely.update()
+          count = count + 1;
+      }
     }
      response.route('main')
+    
     
   }
 
@@ -290,17 +280,6 @@ class FilmController {
       film_id: 'required'
     })
 
-
-    if (eaData.elso == 1) {
-      console.log('ezaaaaz')
-    }
-
-    
-
-    var res = eaData.film_id.split(".");
-    eaData.film_id = res[0]
-    console.log(eaData.film_id)
-
     if (validation.fails()) {
       yield request
         .withAll()
@@ -309,6 +288,11 @@ class FilmController {
 
       response.route('eloadas_create')
     } else {
+
+        var res = eaData.film_id.split(".");
+        eaData.film_id = res[0]
+        console.log(eaData.film_id)
+
 
         const ea = new Eloadas()
         ea.ido = eaData.ido

@@ -104,18 +104,22 @@ ol {
   display: flex;
   flex: 0 0 14.28571428571429%;
   padding: 5px;
-  left: 90px;
   position: relative;
 }
 .seat:nth-child(3) {
   margin-right: 14.28571428571429%;
 }
-
 .seat input[type=checkbox] {
   position: absolute;
   opacity: 0;
 }
-
+.seat input[type=checkbox]:checked + label {
+  background: #FFFF00;
+  -webkit-animation-name: rubberBand;
+  animation-name: rubberBand;
+  animation-duration: 300ms;
+  animation-fill-mode: both;
+}
 .seat input[type=checkbox]:disabled + label {
   background: #dddddd;
   text-indent: -9999px;
@@ -123,6 +127,7 @@ ol {
 }
 .seat input[type=checkbox]:disabled + label:after {
   content: "X";
+  background: #FF0000;
   text-indent: 0;
   position: absolute;
   top: 4px;
@@ -142,7 +147,7 @@ ol {
   font-weight: bold;
   line-height: 1.5rem;
   padding: 4px 0;
-  background: #F42536;
+  background: #00FF00;
   border-radius: 5px;
   animation-duration: 300ms;
   animation-fill-mode: both;

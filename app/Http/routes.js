@@ -36,7 +36,7 @@ Route.post('/film/:id/edit', 'FilmController.doEdit').as('do_film_edit')
 Route.get('/film/:id/delete', 'FilmController.doDelete').as('film_delete')
 Route.get('/film/:id', 'FilmController.show').as('film_page')
 Route.get('/film/:id/foglalas', 'FilmController.filmFoglalas').as('film_foglalas')
-Route.post('/film/foglalas', 'FilmController.doFilmFoglalas').as('do_film_foglalas')
+Route.post('/film/:id/foglalas', 'FilmController.doFilmFoglalas').as('do_film_foglalas')
 
 
 Route.get('/eloadas/create', 'FilmController.create_eloadas').as('eloadas_create').middleware('auth')
