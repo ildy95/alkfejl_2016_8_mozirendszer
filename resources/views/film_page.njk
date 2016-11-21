@@ -2,10 +2,11 @@
 
 {% block title %}{{ film.cim }}{% endblock %}
 {% block content %}
-  <h1>{{ film.cim }}</h1>
-  <li><a href="{{ 'film_foglalas' | route({id: film.id}) }}">Helyfoglalás</a></li>
+  <h1>{{ film.cim }}</h1>  
+  {% if currentUser.admin == 1 %}
   <li><a href="{{ 'film_edit' | route({id: film.id}) }}">Film szerkesztése</a></li>
   <li><a href="{{ 'film_delete' | route({id: film.id}) }}">Film törlése</a></li>
+  {% endif %}
   {% if recipeImage %}
   <img src="{{ recipeImage }}">
   {% endif %}

@@ -3,7 +3,8 @@
 const Eloadas = use('App/Model/E')
 const Film = use('App/Model/Film')
 const Seat = use('App/Model/Seat')
-//const User = use('App/Model/User')
+const Reservation = use('App/Model/Reservation')
+const User = use('App/Model/User')
 const Validator = use('Validator')
 const Helpers = use('Helpers')
 const fs = use('fs')
@@ -14,9 +15,16 @@ class FilmController {
   * main (request, response) {
     // load all categories
     const films = yield Film.all()
-    const eloadasok = yield Film.all()
 
-    yield response.sendView('main', { films: films .toJSON() })
+    //films = films.slice(1,2,3)
+
+  /* // for each category load the last 3 recipes
+    for (let film of film) {
+      const latestFilms = yield film..recipes().active().orderBy('id', 'desc').limit(3).fetch()
+      film.latestFilms = latestFilms.toJSON()
+    }*/
+
+      yield response.sendView('main', { films: films .toJSON() })
     
   }
 
@@ -197,51 +205,260 @@ class FilmController {
   }
 
   * filmFoglalas(request, response) {
-    const filmId = request.param('id')
-    const film = yield Film.find(filmId)
+    const parameterek = request.params()
+    const film = yield Film.find(parameterek.fid)
+    const eloadas = yield Eloadas.find(parameterek.eid)
 
-    const helyek = yield Seat.all()
+    const foglalasok = yield Reservation.all();
+    
+
+    const seatNames = ['1A', '1B', '1C', '1D', '1E', '1F',
+                        '2A', '2B', '2C', '2D', '2E', '2F',
+                        '3A', '3B', '3C', '3D', '3E', '3F',
+                        '4A', '4B', '4C', '4D', '4E', '4F',
+                        '5A', '5B', '5C', '5D', '5E', '5F',
+                        '6A', '6B', '6C', '6D', '6E', '6F',
+                        '7A', '7B', '7C', '7D', '7E', '7F',
+                        '8A', '8B', '8C', '8D', '8E', '8F',
+                        '9A', '9B', '9C', '9D', '9E', '9F',
+                        '10A', '10B', '10C', '10D', '10E', '10F'];
+    
     
 
     if (film) {
-
-      yield response.sendView('film_foglalas', { film: film.toJSON(), helyek: helyek.toJSON()})
+      yield response.sendView('film_foglalas', { film: film.toJSON(), eloadas: eloadas.toJSON(), 
+                  seatNames,
+                  foglalasok: foglalasok.toJSON() })
     } else {
       response.notFound('Film not found.')
     }
   }
 
   * doFilmFoglalas(request, response) {
-    const helyData = request.all()
-    const filmId = request.param('id')
-    const film = yield Film.find(filmId)
+    var parameterek = request.params()
 
-    const helyek = yield Seat.all()
+    const eloadas = yield Eloadas.find(parameterek.id)
+    const user = yield User.find(parameterek.id2)
 
-    const seatNames = [
-      'f1A', 'f1B', 'f1C', 'f1D', 'f1E', 'f1F',
-      'f2A', 'f2B', 'f2C', 'f2D', 'f2E', 'f2F',
-      'f3A', 'f3B', 'f3C', 'f3D', 'f3E', 'f3F',
-      'f4A', 'f4B', 'f4C', 'f4D', 'f4E', 'f4F',
-      'f5A', 'f5B', 'f5C', 'f5D', 'f5E', 'f5F',
-      'f6A', 'f6B', 'f6C', 'f6D', 'f6E', 'f6F'
-    ]
+    const foglalasData = request.all()
 
-    const ids = yield Seat.ids()
-
-    var i;
-    var count = 0;
-    for (i = 0; i < seatNames.length; i++) {
-      var valtozo = seatNames[i]
-      if (helyData.valtozo == 1) {
-          const hely = yield Seat.find(ids[i])
-          hely.foglalt = 1;
-          //yield hely.update()
-          count = count + 1;
-      }
+    if (foglalasData.f1A == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f1A'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f1B == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f1B'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f1C == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f1C'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f1D == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f1D'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f1E == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f1E'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f1F == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f1F'
+        yield foglalas.save()
     }
-     response.route('main')
-    
+
+    if (foglalasData.f2A == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f2A'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f2B == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f2B'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f2C == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f2C'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f2D == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f2D'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f2E == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f2E'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f2F == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f2F'
+        yield foglalas.save()
+    }
+
+    if (foglalasData.f3A == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f3A'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f3B == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f3B'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f3C == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f3C'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f3D == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f3D'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f3E == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f3E'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f3F == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f3F'
+        yield foglalas.save()
+    }
+
+    if (foglalasData.f4A == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f4A'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f4B == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f4B'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f4C == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f4C'
+        yield foglalas.save()
+      } 
+    if (foglalasData.f4D == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f4D'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f4E == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f4E'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f4F == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f4F'
+        yield foglalas.save()
+    }
+
+    if (foglalasData.f5A == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f5A'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f5B == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f5B'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f5C == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f5C'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f5D == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f5D'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f5E == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f5E'
+        yield foglalas.save()
+    } 
+    if (foglalasData.f5F == 1) {
+        const foglalas = new Reservation()
+        foglalas.user_id = parameterek.id2
+        foglalas.ea_id = parameterek.id
+        foglalas.helyek = 'f5F'
+        yield foglalas.save()
+    }
+
+    response.route('main')
+      
     
   }
 
@@ -280,6 +497,17 @@ class FilmController {
       film_id: 'required'
     })
 
+
+    if (eaData.elso == 1) {
+      console.log('ezaaaaz')
+    }
+
+    
+
+    var res = eaData.film_id.split(".");
+    eaData.film_id = res[0]
+    console.log(eaData.film_id)
+
     if (validation.fails()) {
       yield request
         .withAll()
@@ -289,11 +517,6 @@ class FilmController {
       response.route('eloadas_create')
     } else {
 
-        var res = eaData.film_id.split(".");
-        eaData.film_id = res[0]
-        console.log(eaData.film_id)
-
-
         const ea = new Eloadas()
         ea.ido = eaData.ido
         ea.terem = eaData.terem
@@ -301,7 +524,7 @@ class FilmController {
 
         yield ea.save()
         
-        response.route('eloadas_page', {id:ea.id})
+        response.route('main')
       }
     }
 
@@ -311,7 +534,7 @@ class FilmController {
     const ea = yield Eloadas.find(eaId)
 	
     if (!ea) {
-	  yield response.notFound('Eloadas not found.')
+	    yield response.notFound('Eloadas not found.')
 	  return;
     }
 
@@ -349,20 +572,23 @@ class FilmController {
 
     yield ea.update()
 
-    response.route('eloadas_page', { id: ea.id })
+    response.route('main')
     
   }
 
    * show_eloadas (request, response) {
-    const eaId = request.param('id')
-    const ea = yield Eloadas.find(eaId)
+    const eloadasok = yield Eloadas.all()
+    const filmek = yield Film.all()
+    yield response.sendView('eloadas_page', { eloadasok: eloadasok .toJSON(), filmek:filmek.toJSON() })
 
-    if (ea) {
+  }
 
-      yield response.sendView('eloadas_page', { ea: ea.toJSON()})
-    } else {
-      response.notFound('Eloadas not found.')
-    }
+  * foglalasList(request, response) {
+    const foglalasok = yield Reservation.all();
+    const eloadasok = yield Eloadas.all()
+    const filmek = yield Film.all()
+    
+    yield response.sendView('foglalasaim_list', { eloadasok: eloadasok .toJSON(), filmek:filmek.toJSON(), foglalasok: foglalasok.toJSON() })
   }
 
   }
@@ -375,7 +601,6 @@ class FilmController {
     })
   })
 }
-
 
 
   

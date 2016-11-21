@@ -3,10 +3,11 @@
 
 const Hash = use('Hash')
 const User = use('App/Model/User')
+const Confirmation = use('App/Model/Confirmation')
 const Validator = use('Validator')
 
 class UserController {
-    * doLogin (request, response) {
+  * doLogin (request, response) {
     const felhasznalonev = request.input('felhasznalonev')
     const jelszo = request.input('jelszo')
     try {
@@ -34,7 +35,7 @@ class UserController {
 
     if (validation.fails()) {
       yield request
-        .withOut('password', 'password_again')
+        .withOut('jelszo', 'jelszo_ujra')
         .andWith({ errors: validation.messages() })
         .flash()
 
@@ -43,17 +44,60 @@ class UserController {
 	  
     }
 	
-    const user = new User()
-    user.felhasznalonev = userData.felhasznalonev
-    user.email = userData.email
-    user.nev = userData.nev
-    user.jelszo = yield Hash.make(userData.jelszo)
+    const confirmation = new Confirmation()
+    confirmation.felhasznalonev = userData.felhasznalonev
+    confirmation.email = userData.email
+    confirmation.nev = userData.nev
+    confirmation.jelszo = yield Hash.make(userData.jelszo)
 
-    yield user.save()
+    yield confirmation.save()
 
-    yield request.auth.login(user)
+    //yield request.auth.login(user)
+
     
-    response.route('register')
+    response.route('main')
+  }
+
+  * checkRegistrations (request, response) {
+
+    const regisztraciok = yield Confirmation.all()
+    yield response.sendView('check_registrations', { regisztraciok: regisztraciok .toJSON() })
+
+  }
+
+  * elfogad_registration (request, response) {
+      const userId = request.param('id')
+      const user = yield Confirmation.find(userId)
+
+      if (user) {
+        const valodiUser = new User()
+        valodiUser.felhasznalonev = user.felhasznalonev
+        valodiUser.email = user.email
+        valodiUser.nev = user.nev
+        valodiUser.jelszo = user.jelszo
+
+        yield valodiUser.save()
+
+        yield user.delete()
+      }
+
+      
+      const regisztraciok = yield Confirmation.all()
+      yield response.sendView('check_registrations', { regisztraciok: regisztraciok .toJSON() })
+  }
+
+
+  * elutasit_registration (request, response) {
+
+      const userId = request.param('id')
+      const user = yield Confirmation.find(userId)
+
+      if (user) {
+        yield user.delete()
+      }
+
+      const regisztraciok = yield Confirmation.all()
+      yield response.sendView('check_registrations', { regisztraciok: regisztraciok .toJSON() })
   }
 
   /**

@@ -20,12 +20,18 @@
         <div class="container">
             <div class="form-group">
                 <label for="dtp_input1" class="col-md-2 control-label">Előadás ideje</label>
-                <div class="input-group date form_datetime col-md-5" data-date="2016-11-16T05:25:07Z" data-date-format="yyyy-mm-dd HH:ii:ss" data-link-field="dtp_input1">
+                <div id = "datetimepicker5" class="input-group date form_datetime col-md-5" data-link-field="dtp_input1">
                     <input class="form-control" name="ido" placeholder="Idő" size="16" type="text" id="date-daily" value="{{ old('ido') }}" readonly>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
                     <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
                 </div>
-                
+               <script type="text/javascript">
+                  $(function () {
+                      $('#datetimepicker5').datetimepicker({
+                          locale: 'hu'
+                      });
+                  });
+              </script> 
             </div>
         </div>
 
