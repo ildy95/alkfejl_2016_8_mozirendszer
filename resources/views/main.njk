@@ -2,14 +2,6 @@
 
 {% block title %}Kezdőlap{% endblock %}
 {% block content %}
-  <form action="{{ 'recipe_list' | route }}" method="GET">
-    <div class="input-group search-box">
-      <input type="text" class="form-control" placeholder="Keresés..." name="recipeName">
-      <span class="input-group-btn">
-        <button class="btn btn-info" type="submit">Mehet!</button>
-      </span>
-    </div>
-  </form>
   
  {% for filmBatch in films | batch(3) %}
   <div class="row">
