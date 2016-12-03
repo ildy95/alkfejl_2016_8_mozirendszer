@@ -5,6 +5,7 @@ const Hash = use('Hash')
 const User = use('App/Model/User')
 const Confirmation = use('App/Model/Confirmation')
 const Validator = use('Validator')
+const fs = use('fs')
 
 class UserController {
   * doLogin (request, response) {
@@ -51,9 +52,6 @@ class UserController {
     confirmation.jelszo = yield Hash.make(userData.jelszo)
 
     yield confirmation.save()
-
-    //yield request.auth.login(user)
-
     
     response.route('main')
   }
