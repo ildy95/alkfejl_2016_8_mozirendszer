@@ -18,10 +18,12 @@
                     <td> {{ f.cim }} </td>
                     <td> {{ea.ido}} </td>
                     <td> {{ea.terem}} </td>
-                    <td><a href="{{ 'film_foglalas' | route({fid: f.id, eid: ea.id}) }}">
-                            Foglal
-                        </a>
-                    </td>
+                    {% if currentUser %}
+                        <td><a href="{{ 'film_foglalas' | route({fid: f.id, eid: ea.id}) }}">
+                                Foglal
+                            </a>
+                        </td>
+                    {% endif %}
                   {% endif %}
                 {% endfor %}
             </tr>

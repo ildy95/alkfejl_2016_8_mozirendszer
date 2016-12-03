@@ -143,7 +143,6 @@ class UserController {
 
    * doPasswordEdit (request, response) {
     const userData = request.all()
-    console.log('alma')
     const validation = yield Validator.validateAll(userData, {
       old_jelszo: 'required',
       new_jelszo: 'required|min:4',

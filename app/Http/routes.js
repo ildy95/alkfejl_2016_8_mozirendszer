@@ -41,12 +41,10 @@ Route.get('/film/:id/delete', 'FilmController.doDelete').as('film_delete')
 Route.get('/film/:id', 'FilmController.show').as('film_page')
 Route.get('/film/:fid/:eid/foglalas', 'FilmController.filmFoglalas').as('film_foglalas')
 Route.post('/film/:id/:id2/foglalas', 'FilmController.doFilmFoglalas').as('do_film_foglalas')
-Route.get('/foglalaslist', 'FilmController.foglalasList').as('foglalas_list')
+Route.get('/:id/foglalaslist', 'FilmController.foglalasList').as('foglalas_list')
 
 
 Route.get('/eloadas/create', 'FilmController.create_eloadas').as('eloadas_create').middleware('auth')
 Route.post('/eloadas/create', 'FilmController.doCreate_eloadas').as('do_eloadas_create')
-Route.get('/eloadas/:id/edit', 'FilmController.edit_eloadas').as('eloadas_edit')
-Route.post('/eloadas/:id/edit', 'FilmController.doEdit_eloadas').as('do_eloadas_edit')
 Route.get('/eloadasok', 'FilmController.show_eloadas').as('eloadasok_page')
 

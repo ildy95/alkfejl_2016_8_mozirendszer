@@ -13,19 +13,23 @@ class FilmController {
 
 
   * main (request, response) {
-    // load all categories
-    const films = yield Film.all()
+    const page = Math.max(1, request.input('p'))
+    const filters = {
+      filmName: request.input('filmName') || '',
+      mufaj: request.input('mufaj') || ''
+    }
 
-    //films = films.slice(1,2,3)
+    const films = yield Film.query()
+      .where(function () {
+        if (filters.filmName.length > 0) this.where('cim', 'LIKE', `%${filters.filmName}%`)
+        if (filters.mufaj.length > 0) this.where('mufaj', filters.mufaj)
+      })
+      .paginate(page, 9)
 
-  /* // for each category load the last 3 recipes
-    for (let film of film) {
-      const latestFilms = yield film..recipes().active().orderBy('id', 'desc').limit(3).fetch()
-      film.latestFilms = latestFilms.toJSON()
-    }*/
-
-      yield response.sendView('main', { films: films .toJSON() })
-    
+    yield response.sendView('main', {
+      films: films .toJSON(),
+      filters
+    })
   }
 
     * create (request, response) {
@@ -34,9 +38,6 @@ class FilmController {
     yield response.sendView('film_create', { filmek: filmek.toJSON() })
   }
 
-  /**
-   *
-   */
   * doCreate (request, response) {
     const filmData = request.all()
     const validation = yield Validator.validateAll(filmData, {
@@ -45,8 +46,7 @@ class FilmController {
       hossz: 'required',
       korhatar: 'required',
       rendezo: 'required',
-      leiras: 'required',
-      //szinkronizalt: 'required'
+      leiras: 'required'
     })
 
     if (validation.fails()) {
@@ -57,27 +57,14 @@ class FilmController {
 
       response.route('film_create')
     } else {
-      //const category = yield Category.find(recipeData.category)
+        const recipeImage = request.file('image', { maxSize: '1mb', allowedExtensions: ['jpg', 'JPG'] })
 
-      /*if (!category) {
-        yield request
-          .withAll()
-          .andWith({ errors: [{ message: 'category doesn\'t exist' }] })
-          .flash()
-
-        response.route('recipe_create')
-      } else {*/
-       /* const recipeImage = request.file('image', { maxSize: '1mb', allowedExtensions: ['jpg', 'JPG'] })
-
-        if (recipeImage.clientSize() > 0 && !recipeImage.validate()) {
+        if (recipeImage != null && recipeImage.clientSize() > 0 && !recipeImage.validate()) {
           yield request
             .withAll()
             .andWith({ errors: [{ message: recipeImage.errors() }] })
             .flash()
-
-          response.route('film_create')
-          return
-        } */
+        }
 
         const film = new Film()
         film.cim = filmData.cim
@@ -87,14 +74,10 @@ class FilmController {
         film.rendezo = filmData.rendezo
         film.leiras = filmData.leiras
         film.szinkronizalt = filmData.szinkronizalt
-        //film.created_by_id = 1 // TODO: Replace
-
-        // TODO: these lines should be executed atomically
         yield film.save()
-        //yield recipeImage.move(Helpers.publicPath() + '/images', `${recipe.id}.jpg`)
-        //yield recipeImage.move(Helpers.publicPath() + '/images', `${recipe.id}.jpg`)
+        yield recipeImage.move(Helpers.publicPath() + '/images', `${film.id}.jpg`)
 
-       response.route('main')
+        response.route('main')
       }
     }
 
@@ -107,15 +90,6 @@ class FilmController {
 	  yield response.notFound('Film not found.')
 	  return;
     } 
-	
-    /*if (film.created_by_id !== request.currentUser.id) {
-      response.unauthorized('Access denied.')
-    }*/
-
-    //yield recipe.related('category').load()
-    //yield recipe.related('created_by').load()
-
-    //const categories = yield Category.all()
 
     yield response.sendView('film_edit', { film: film.toJSON() })
   }
@@ -131,11 +105,6 @@ class FilmController {
 	    yield response.notFound('Film not found.')
 	  return;
     } 
-	
-    /*if (recipe.created_by_id !== request.currentUser.id) {
-      yield response.unauthorized('Access denied.')
-	  return;
-    }*/
 	  
     const filmData = request.all()
     const validation = yield Validator.validateAll(filmData, {
@@ -144,8 +113,7 @@ class FilmController {
       hossz: 'required',
       korhatar: 'required',
       rendezo: 'required',
-      leiras: 'required',
-      //szinkronizalt: 'required'
+      leiras: 'required'
     })
 
     
@@ -157,21 +125,6 @@ class FilmController {
       yield response.route('film_edit', {id:film.id})
 	  return;
     } 
-    
-    /*const recipeImage = request.file('image', { maxSize: '1mb', allowedExtensions: ['jpg', 'JPG'] })
-
-    if (recipeImage.clientSize() > 0) {
-      yield recipeImage.move(Helpers.publicPath() + '/images', `${recipe.id}.jpg`)
-
-      if (!recipeImage.moved()) {
-        yield request
-          .with({ errors: [{ message: recipeImage.errors() }] })
-          .flash()
-
-        response.route('recipe_edit', {id: recipe.id})
-        return
-      }
-    }*/
 
         film.cim = filmData.cim
         film.mufaj = filmData.mufaj
@@ -179,7 +132,6 @@ class FilmController {
         film.korhatar = filmData.korhatar
         film.rendezo = filmData.rendezo
         film.leiras = filmData.leiras
-        //film.szinkronizalt = filmData.szinkronizalt
 
     yield film.update()
 
@@ -193,12 +145,7 @@ class FilmController {
     const film = yield Film.find(filmId)
 
     if (film) {
-
-      const fileName = `/images/${film.id}.jpg`
-      const imageExists = yield fileExists(`${Helpers.publicPath()}/${fileName}`)
-      const filmImage = imageExists ? fileName : false
-
-      yield response.sendView('film_page', { film: film.toJSON(), filmImage })
+      yield response.sendView('film_page', { film: film.toJSON() })
     } else {
       response.notFound('Film not found.')
     }
@@ -465,12 +412,8 @@ class FilmController {
   * doDelete (request, response) {
     const filmId = request.param('id')
     const film = yield Film.find(filmId)
-    if (film) {
-      /*if (recipe.created_by_id !== request.currentUser.id) {
-        response.unauthorized('Access denied.')
-      }*/
 
-      //recipe.deleted = true
+    if (film) {
       yield film.delete()
 
       response.route('main')
@@ -491,22 +434,13 @@ class FilmController {
   * doCreate_eloadas (request, response) {
     const eaData = request.all()
     const validation = yield Validator.validateAll(eaData, {
-      //datum: 'required',
       ido: 'required',
       terem: 'required',
       film_id: 'required'
     })
 
-
-    if (eaData.elso == 1) {
-      console.log('ezaaaaz')
-    }
-
-    
-
     var res = eaData.film_id.split(".");
     eaData.film_id = res[0]
-    console.log(eaData.film_id)
 
     if (validation.fails()) {
       yield request
@@ -541,41 +475,6 @@ class FilmController {
     yield response.sendView('eloadas_edit', { ea: ea.toJSON() })
   }
 
-  /**
-   *
-   */
-  * doEdit_eloadas (request, response) {
-    const eaId = request.param('id')
-    const ea = yield Eloadas.find(eaId)
-
-    if (!ea) {
-	    yield response.notFound('Eloadas not found.')
-	  return;
-    } 
-	  console.log('alma')
-    const eaData = request.all()
-    const validation = yield Validator.validateAll(eaData, {
-      ido: 'required',
-    })
-
-    
-    if (validation.fails()) {
-      yield request
-        .with({ errors: validation.messages() })
-        .flash()
-
-      yield response.route('eloadas_edit', {id:ea.id})
-	  return;
-    } 
-
-        ea.ido = eaData.ido
-
-    yield ea.update()
-
-    response.route('main')
-    
-  }
-
    * show_eloadas (request, response) {
     const eloadasok = yield Eloadas.all()
     const filmek = yield Film.all()
@@ -587,8 +486,19 @@ class FilmController {
     const foglalasok = yield Reservation.all();
     const eloadasok = yield Eloadas.all()
     const filmek = yield Film.all()
-    
-    yield response.sendView('foglalasaim_list', { eloadasok: eloadasok .toJSON(), filmek:filmek.toJSON(), foglalasok: foglalasok.toJSON() })
+
+    const currentUserId = request.param('id')
+    const fog = yield Reservation.query().where('user_id', currentUserId)
+
+
+    var eaids = []
+    fog.forEach(function(element) {
+        eaids.push(element.ea_id);
+    });
+    var eaids2 = eaids.filter(function(elem, index, self) {
+        return index == self.indexOf(elem);
+    })
+    yield response.sendView('foglalasaim_list', { eloadasok: eloadasok .toJSON(), filmek:filmek.toJSON(), eaids2 })
   }
 
   }

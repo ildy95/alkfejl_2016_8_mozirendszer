@@ -12,22 +12,20 @@
         </thead>
         <tbody>
                                         
-        {% for foglalas in foglalasok  %}
-            {% if foglalas.user_id == currentUser.id %}
-                {% for ea in eloadasok  %}
-                <tr class="active">
-                    {% if foglalas.ea_id == ea.id %}
-                        {% for f in filmek %}
-                            {% if f.id == ea.film_id %}
-                                <td id="alma"> {{ f.cim }} </td>
-                                <td> {{ea.ido}} </td>
-                                <td> {{ea.terem}} </td>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
-                </tr>
-                {% endfor %}
-            {% endif %}
+        {% for e in eaids2  %}
+            {% for ea in eloadasok  %}
+            <tr class="active">
+                {% if e == ea.id %}
+                    {% for f in filmek %}
+                        {% if f.id == ea.film_id %}
+                            <td id="alma"> {{ f.cim }} </td>
+                            <td> {{ea.ido}} </td>
+                            <td> {{ea.terem}} </td>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </tr>
+            {% endfor %}
         {% endfor %}
         </tbody>
     </table>
