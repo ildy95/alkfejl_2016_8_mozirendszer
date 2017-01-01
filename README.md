@@ -12,7 +12,7 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
  
 ### Megbízhatóság
 - Sérült adatok esetén az összes korábbi tartalom elveszhet
-- A felhasználói bevitel ellenőrzött, csak helyes bevitelt fogad el az alkalmazás 
+- A felhasználói bevitel részben ellenőrzött, csak helyes bevitelt fogad el az alkalmazás 
 - A megbízhatóan kezelhető adatok mennyisége korlátozott
 - Az adatok sérülhetnek bezáráskor történő összeomláskor 
 - Az adatok adatbázisban tárolódnak, az adatbázis sérülésével a még nem rögzített adatok elveszhetnek 
@@ -28,29 +28,26 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 ### Felhasználhatóság 
 - Minden programfunkciónak áttekinthetőnek kell lennie
 - A kezelést könnyíteni kell az egyes funkciógombok és szövegek megfelelő méretével
-- A filmek esetén szükséges egy keresés input mező, mely azonnal listázza a megfelelő adatokat
 - Felhasználóbarát, ergonomikus elrendezés és kinézet
 
 ## Funkcionális követelmények
 
 ### Vendég:
 - Vendégként szeretnék regisztrálni az oldalra
-- Vendégként a főoldalon szeretnék kiemelt filmeket látni
 - Vendégként szeretnék a filmek között szabadon böngészni
 - Vendégként szeretnék filmeknél leírást megtekinteni
-- Vendégként szeretnék filmeket keresni
 
 ### Felhasználó:
 - Felhasználóként szeretnék belépni
 - Felhasználóként szeretném az adataimat szerkeszteni
-- Felhasználóként szeretnék meghirdetett filmekre jegyet foglalni (név, e-mail cím, telefonszám adatokkal), s egy generált kódot szeretnék kapni, a jegyvételkor visszaigazoláshoz
-- Felhasználóként szeretném esetlegesen a foglalt film visszamondását
+- Felhasználóként szeretnék meghirdetett filmekre jegyet foglalni
 
 ### Adminisztrátor (mozi alkalmazottja)
 - Alkalmazottként szeretnék belépni az adminisztrációs felületre
 - Alkalmazottként szeretnék új filmeket meghirdetni (terem, film, időpont megadásával)
 - Alkalmazottként szeretnék meghirdetett filmeket törölni.
 - Alkalmazottként szeretnék filmekhez előadás időpontot hirdetni.
+- Alkalmazottként szeretném a regisztrált felhasználók adatait megfelelően visszaigazolni
 
 ## Szakterületi fogalomjegyzék
 
@@ -62,9 +59,9 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 
 ## Szerepkörök
 
-- Vendég: Filmek keresését, böngészését, megtekintését végezheti, illetve regisztrálhat
+- Vendég: Filmek böngészését, megtekintését végezheti, illetve regisztrálhat
 - Alkalmazott: Új filmeket képes meghirdetni, illetve törölni
-- Felhasználó: Filmek keresését, böngészését, megtekintését, film foglalását, s annak visszamondását végezheti, illetve bejelentkezhet
+- Felhasználó: Filmek böngészését, megtekintését, film foglalását végezheti, illetve bejelentkezhet
 
 
 ## Használati eset diagram
@@ -80,8 +77,6 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 
 ![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/jegyfoglal%C3%A1s.png)
 
-![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/foglal%C3%A1s%20visszamond%C3%A1sa.png)
-
 * Alkalmazott:
 
 ![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/bejelentkez%C3%A9s_admin.png)
@@ -95,8 +90,8 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 
 ### Publikus:
  - Főoldal
- - Filmek böngészése
-    + Film megtekintése
+    - Filmek böngészése
+        + Film megtekintése
  - Belépés
  - Regisztráció
  
@@ -104,16 +99,14 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
  - Kilépés
  - Profiladatok
     + Profiladatok szerkesztése
- - Filmlista
-    + Film megtekintése
-       * Foglalás
-       * Foglalás visszamondása
+ - Előadások megtekintése
+    + Helyfoglalás
 
 ### Alkalmazott:
- - Belépés
  - Profiladatok
  - Új film felvétele
  - Új előadás hirdetése egy filmre
+ - Regisztrációk megtekintése
 
 
 ## Végpontok
@@ -122,13 +115,24 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - GET /login: bejelentkező oldal
 - POST /login: bejelentkezési adatok felküldése
 - GET /register: regisztrációs oldal
-- POST /register: bejelentkezési adatok felküldése
+- POST /register: regisztrációs adatok felküldése
 - GET /profile: profiladatok
-- GET /films: filmlista
-- GET /films/:id : film megtekintése
-- GET /films/:id/reservation: adott filmre hely foglalása
-- GET /films/create: új film létrehozása
-- POST /films/create: új film felvitele, adatok küldése
+- POST /profile/edit: profiladatok módosítása
+- POST /profile/edit_password: jelszó módosítása
+- GET /registrations: regisztrációk megtekintése
+- GET /:id/foglalaslist: saját foglalások megtekintése
+
+- GET /film/create: film létrehozása
+- POST /film/create: filmadatok felküldése
+- GET /film/:id/edit: film adatainak szerkesztése
+- POST /film/:id/edit: filmadatok felküldése
+- GET /film/:id/delete: film törlése
+- GET /film/:id : film megtekintése
+- GET /film/:fid/:eid/foglalas: foglalás egy adott előadásra
+- GET /eloadas/create: új előadás létrehozása
+- POST /eloadas/create: új előadás felvitele, adatok küldése
+- GET /eloadasok: előadások megtekintése
+
 
 ## Oldalvázlatok
 
@@ -145,6 +149,10 @@ Az alábbi linken megtekinthető: https://app.moqups.com/ildy95/sLaWCR8v1S/view/
 ## Állapotdiagram
 
 ![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/regisztr%C3%A1ci%C3%B3%20visszaigazol%C3%A1ssal.png)
+
+## Fejlesztési dokumentáció
+
+1. Struktúra:
 
 
 
