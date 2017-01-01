@@ -215,5 +215,5 @@ Egyéb követelmények: Internet böngésző telepítése, JavaScript ajánlott
     
   
 ### Szekvenciadiagram
-Vegyünk példának egy bejelentkezést követő új film felvételét, módosítását, majd törlését.
-![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/diagram.svg)
+Vegyük példának egy bejelentkezést követő új film felvételét, módosítását, majd törlését.
+![alt tag](https://github.com/ildy95/alkfejl_2016_8_mozirendszer/blob/master/pics/diagram.png)
