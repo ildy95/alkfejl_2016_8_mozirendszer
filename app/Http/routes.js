@@ -48,3 +48,11 @@ Route.get('/eloadas/create', 'FilmController.create_eloadas').as('eloadas_create
 Route.post('/eloadas/create', 'FilmController.doCreate_eloadas').as('do_eloadas_create')
 Route.get('/eloadasok', 'FilmController.show_eloadas').as('eloadasok_page')
 
+Route.group('ajax', function () {
+  Route.post('/login', 'UserController.ajaxLogin')
+  Route.post('/register', 'UserController.ajaxRegister')
+  Route.post('/film/create', 'FilmController.ajaxCreateFilm')
+  Route.delete('/film/:id/delete', 'FilmController.ajaxDelete')
+  Route.delete('/registrations/:id/elutasit', 'UserController.ajaxElutasit')
+}).prefix('/ajax')
+

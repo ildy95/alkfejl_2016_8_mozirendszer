@@ -502,7 +502,50 @@ class FilmController {
     yield response.sendView('foglalasaim_list', { eloadasok: eloadasok .toJSON(), filmek:filmek.toJSON(), eaids2 })
   }
 
-  }
+
+  * ajaxDelete(request, response) {
+    const id = request.param('id');
+    const film = yield Film.find(id);
+    
+      if (film) {    
+        yield film.delete()
+          response.ok({
+            success: true
+        })
+        return
+      }
+      response.notFound('No film')
+    }
+
+    * ajaxCreateFilm(request, response) {
+        const filmData = request.all()
+        const filmImage = request.file('image', { maxSize: '1mb', allowedExtensions: ['jpg', 'JPG'] })
+
+        if (filmImage != null && filmImage.clientSize() > 0 && !filmImage.validate()) {
+          yield request
+            .withAll()
+            .andWith({ errors: [{ message: filmImage.errors() }] })
+            .flash()
+        }
+
+        const film = new Film()
+        film.cim = filmData.cim
+        film.mufaj = filmData.mufaj
+        film.hossz = filmData.hossz
+        film.korhatar = filmData.korhatar
+        film.rendezo = filmData.rendezo
+        film.leiras = filmData.leiras
+        film.szinkronizalt = filmData.szinkronizalt
+        yield film.save()
+        //yield filmImage.move(Helpers.publicPath() + '/images', `${film.id}.jpg`)
+
+        response.ok({
+            success: true
+        })
+        return
+    }
+
+}
 
   function fileExists(fileName) {
   return new Promise((resolve, reject) => {

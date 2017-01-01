@@ -219,6 +219,57 @@ class UserController {
     response.route('profile')
   }
 
+  /**
+   *
+   */
+  * ajaxLogin(request, response) {
+    const felhasznalonev = request.input('felhasznalonev')
+    const jelszo = request.input('jelszo')
+	
+    try {
+      const login = yield request.auth.attempt(felhasznalonev, jelszo)
+      if (login) {
+        response.send({ success: true })
+        return
+      }
+    } 
+    catch (err) {
+      response.send({ success: false })
+    }
+  }
+
+  * ajaxRegister(request, response) {
+    const userData = request.all()
+	
+    const confirmation = new Confirmation()
+    confirmation.felhasznalonev = userData.felhasznalonev
+    confirmation.email = userData.email
+    confirmation.nev = userData.nev
+    confirmation.jelszo = yield Hash.make(userData.jelszo)
+
+    yield confirmation.save()
+    
+    response.send({ success: true })
+    return
+  }
+
+  * ajaxElutasit(request, response) {
+    const userId = request.param('id')
+    const user = yield Confirmation.find(userId)
+
+    if (user) {
+      yield user.delete()
+      response.send({ success: true })
+      return
+    }
+
+    response.send({ success: false })
+    return;
+
+    //const regisztraciok = yield Confirmation.all()
+    //yield response.sendView('check_registrations', { regisztraciok: regisztraciok .toJSON() })
+  }
+
 }
 
 module.exports = UserController
