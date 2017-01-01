@@ -121,7 +121,6 @@ Ezen program tehát összekapcsolja a két felhasználói kört, s segíti a moz
 - POST /profile/edit_password: jelszó módosítása
 - GET /registrations: regisztrációk megtekintése
 - GET /:id/foglalaslist: saját foglalások megtekintése
-
 - GET /film/create: film létrehozása
 - POST /film/create: filmadatok felküldése
 - GET /film/:id/edit: film adatainak szerkesztése
@@ -154,5 +153,28 @@ Az alábbi linken megtekinthető: https://app.moqups.com/ildy95/sLaWCR8v1S/view/
 
 1. Struktúra:
 
+- app
+  - Http
+    - Controllers
+      + FilmController.js // filmek funkciói
+      + UserController.js // user funkciói
+    - routes.js   // végpontok rögzítése
+  - Model
+- config
+- database
+- pics // dokumentációhoz felhasznált képek
+- public
+  - scripts
+    - delete.js  // Film törlésének ajax funkciója
+    - elutasit.js // Regisztráció elutasításának ajax funkciója
+    - popup_addFilm.js // Film hozzáadása felugró ablakban
+    - popup_login.js // Bejelentkezés felugró ablakban
+    - popup_register.js // Regisztráció felugró ablakban
+  - datetimepicker // előadás hirdetésnél használt dátumválasztóhoz
+- resources
+  - views   // Alkalmazás oldalainak kinézete
+- test  // Teszteket tartalmazó mappa
 
+    
+  
 
